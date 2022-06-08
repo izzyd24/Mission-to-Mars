@@ -6,7 +6,7 @@ from flask_pymongo import PyMongo
 import scraping
 
 # set up flask 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # connect py to mongo 
 # app.config tells py that our app will connect to mongo via URI
