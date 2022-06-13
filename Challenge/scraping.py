@@ -137,14 +137,19 @@ def hemisphere(browser):
     browser.visit(url)
 
     hemisphere_image_urls = []
-
-    # copy over from d1?
-    for hemispheres in range(4):
-        hemispheres 
-
-
-
-
+    # copy over from d1? Why?
+    for hemis in range(4):
+        hemispheres = {}
+        browser.links.find_by_partial_text('Hemisphere')[hemis].click()
+        html = browser.html
+        hemisphere_soup = soup(html, 'html.parser')
+        img_url = hemisphere_soup.find('li').a.get('href')
+        title = hemisphere_soup.find('h2', class_='title').text 
+        hemispheres["img_url"] = img_url
+        hemispheres['title'] = title
+        hemisphere_image_urls.append(hemispheres)
+        browser.back()
+    browser.quit()  
 
 # final block tells flask that our script is complete
 # prints the results of scraping to terminal 
@@ -153,5 +158,7 @@ if __name__ == "__main__":
     # If running as script, print scraped data
     print(scrape_all())
 
-# add 10.5.3 code--- update data stored in mongo each time its ran 
-# script to establish link between scraped data and our database via mongodb
+### MAJOR QUESTION:
+# app.py is to run flask and load the database data to index.html
+# scrapping.py will load webpage content into database 
+# why all three divided/not one file?
