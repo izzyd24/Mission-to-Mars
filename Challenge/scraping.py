@@ -32,6 +32,8 @@ def scrape_all():
         "facts": mars_facts(),
         # add from challenge deliverable #2 
         # list of dicts with URL string + title of each hemisphere
+        # OR do I add 4 titles like this: 
+        # title: "hempishere title # 1": hemisphere_image_urls
         "hemispheres": hemisphere_image_urls,
         "last_modified": dt.datetime.now()
     }
@@ -81,7 +83,6 @@ def mars_news(browser):
     # do not print, but simply end the function by returning the newstitle and newsp
     return news_title, news_p
    
-  
 ### JPL Space Images Featured Image
 def featured_image(browser):
     # Visit URL
@@ -127,6 +128,23 @@ def mars_facts():
 
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html()
+
+### SCRAPE HEMISPHERES 
+# function to scrape the hemi data from py file
+# return scraped data as list of dictionaries w/ url string and title of each hemi 
+def hemisphere(browser):
+    url = "https://marshemispheres.com/"
+    browser.visit(url)
+
+    hemisphere_image_urls = []
+
+    # copy over from d1?
+    for hemispheres in range(4):
+        hemispheres 
+
+
+
+
 
 # final block tells flask that our script is complete
 # prints the results of scraping to terminal 
