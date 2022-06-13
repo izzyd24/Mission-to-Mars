@@ -140,7 +140,7 @@ def hemisphere(browser):
     # copy over from d1? Why?
     for hemis in range(4):
         hemispheres = {}
-        browser.links.find_by_partial_text('Hemisphere')[hemis].click()
+        browser.find_by_css("a.product-item img")[hemis].click()
         html = browser.html
         hemisphere_soup = soup(html, 'html.parser')
         img_url = hemisphere_soup.find('li').a.get('href')
