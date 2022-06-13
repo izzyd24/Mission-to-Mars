@@ -18,6 +18,8 @@ def scrape_all():
     # tells us that news title, news para variables = marsnews function 
     # lets us pull the data
     news_title, news_paragraph = mars_news(browser)
+    # adding from challenge d2
+    hemisphere_image_urls=hemisphere(browser)
 
     # Run all scraping functions and store results in a dictionary
     # this dict does: 
@@ -28,6 +30,9 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
+        # add from challenge deliverable #2 
+        # list of dicts with URL string + title of each hemisphere
+        "hemispheres": hemisphere_image_urls,
         "last_modified": dt.datetime.now()
     }
 
